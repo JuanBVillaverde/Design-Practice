@@ -1,0 +1,53 @@
+[{
+  "id": "1",
+  "title": "Carpas doble cuatro sillas",
+  "category": "Servicio • Turística",
+  "price": "50,000 COP"
+
+},
+
+{
+  "id": "2",
+"title": "Carpas con dos camas",
+"category": "Servicio • Turística",
+"price": "60,000 COP"
+
+},
+{
+  "id": "3",
+"title": "Carpas familiar ocho sillas",
+"category": "Servicio • Turística",
+"price": "100,000 COP"
+
+},
+{
+  "id": "4",
+"title": "Parasoles con dos sillas",
+"category": "Servicio • Turística",
+"price": "40,000 COP"
+
+},
+{
+  "id": "5",
+"title": "Parasoles con dos camas",
+"category": "Servicio • Turística",
+"price": "60,000 COP"
+
+},
+
+  {
+    "id": "4",
+    "title": "Parasoles con dos sillas",
+    "category": "Servicio • Turística",
+    "price": "40,000 COP"
+
+  },
+
+  {
+    "id": "4",
+    "title": "Parasoles con dos sillas",
+    "category": "Servicio • Turística",
+    "price": "40,000 COP"
+
+  }
+]
