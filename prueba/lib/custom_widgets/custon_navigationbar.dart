@@ -17,11 +17,24 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-
     HomeView(),
     MapView(),
     ListaView(),
     QrReaderView(),
+  ];
+
+  final List<String> _icons = [
+    'assets/images/Inicio.png',
+    'assets/images/Mapa.png',
+    'assets/images/Precios.png',
+    'assets/images/QRIcon.png',
+  ];
+
+  final List<String> _selectedIcons = [
+    'assets/images/InicioSelected.png',
+    'assets/images/MapaSelected.png',
+    'assets/images/PreciosSelected.png',
+    'assets/images/QRSelected.png',
   ];
 
   @override
@@ -31,23 +44,27 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
         index: _selectedIndex,
         children: _screens,
       ),
-      bottomNavigationBar: BottomNavigationBar(currentIndex: _selectedIndex,
-      onTap: (index){
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.orange,
         unselectedItemColor: Colors.black,
         backgroundColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio',),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Mapa',),
-          BottomNavigationBarItem(icon: Icon(Icons.monetization_on), label: 'Precios',),
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code_scanner), label: 'Lector QR',),
-        ],
-
+        items: List.generate(4, (index) {
+          return BottomNavigationBarItem(
+            icon: Image.asset(
+              _selectedIndex == index ? _selectedIcons[index] : _icons[index],
+              width: 50,
+              height: 50,
+            ),
+            label: '',
+          );
+        }),
       ),
     );
   }
