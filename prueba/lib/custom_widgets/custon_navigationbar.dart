@@ -52,8 +52,8 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.orange,
-        unselectedItemColor: Colors.black,
+        // selectedItemColor: Colors.orange,
+        // unselectedItemColor: Colors.black,
         backgroundColor: Colors.white,
         items: List.generate(4, (index) {
           return BottomNavigationBarItem(

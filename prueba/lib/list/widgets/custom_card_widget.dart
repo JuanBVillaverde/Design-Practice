@@ -34,6 +34,7 @@ class CustomCardWidget extends StatelessWidget {
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
+
           ],
         ),
         child: Column(
@@ -87,17 +88,20 @@ class CustomCardWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  width: 150,
+                  width: 10,
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
-                    imageUrl,
-                    width: 85.0,
-                    height: 85.0,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+
+                 Padding(padding: EdgeInsets.only(right: 10.0),child: ClipRRect(
+                   borderRadius: BorderRadius.circular(8.0),
+                   child: Image.asset(
+                     imageUrl,
+                     width: 85.0,
+                     height: 85.0,
+                     fit: BoxFit.cover,
+                   ),
+                 ),)
+
+
               ],
             ),
             // Expanded(child:
@@ -105,6 +109,7 @@ class CustomCardWidget extends StatelessWidget {
             // ),
           ],
         ),
+
       ),
     );
   }

@@ -32,17 +32,18 @@ class CustomStackWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Container(
-          width: 500,
+          width: 328,
           height: 148,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(backgroundImage),
-              fit: BoxFit.cover,
-            ),
+            // image: DecorationImage(
+            //   image: NetworkImage(backgroundImage),
+            //   fit: BoxFit.cover,
+            // ),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Stack(
             children: [
+              Image.asset(backgroundImage, fit: BoxFit.fill,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
