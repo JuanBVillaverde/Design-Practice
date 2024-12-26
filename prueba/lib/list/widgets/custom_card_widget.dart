@@ -34,82 +34,77 @@ class CustomCardWidget extends StatelessWidget {
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
-
           ],
         ),
-        child: Column(
+        child: Row(
           children: [
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Text(
+                    category,
+                    style: const TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        price,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 1.0,
-                    ),
-                    Text(
-                      category,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        color: Colors.grey,
+                      const SizedBox(
+                        width: 8.0,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 1.0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          price,
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      const Text(
+                        'Precio sugerido',
+                        style: TextStyle(
+                          fontSize: 10.0,
+                          color: Colors.grey,
                         ),
-                        const SizedBox(
-                          width: 1.0,
-                        ),
-                        const Text(
-                          'Precio sugerido',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-
-                 Padding(padding: EdgeInsets.only(right: 10.0),child: ClipRRect(
-                   borderRadius: BorderRadius.circular(8.0),
-                   child: Image.asset(
-                     imageUrl,
-                     width: 85.0,
-                     height: 85.0,
-                     fit: BoxFit.cover,
-                   ),
-                 ),)
-
-
-              ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
+            // const SizedBox(
+            //   width: 10,
+            // ),
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                imageUrl,
+                width: 85.0,
+                height: 85.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+
             // Expanded(child:
 
             // ),
           ],
         ),
-
       ),
     );
   }

@@ -43,7 +43,7 @@ class _ListaViewState extends State<ListaView> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 8.0,),
+          const SizedBox(height: 8.0,),
           CustomSearchbar(
             controller: searchController,
             onFilterPressed: () {},
@@ -57,7 +57,7 @@ class _ListaViewState extends State<ListaView> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 14.0,
-                height: 1.5,
+
               ),
             ),
           ),
@@ -82,11 +82,11 @@ class _ListaViewState extends State<ListaView> {
                 final List<ItemCard> items = snapshot.data!;
                 return ListView.builder(
                   itemCount: items.length,
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  // padding: const EdgeInsets.symmetric(vertical: 1.0),
                   itemBuilder: (context, index) {
                     final item = items[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 1.0),
                       child: CustomCardWidget(
                         title: item.title,
                         category: item.category,

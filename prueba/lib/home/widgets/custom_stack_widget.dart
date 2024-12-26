@@ -27,13 +27,15 @@ class CustomStackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       // onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Container(
-          width: 328,
-          height: 148,
+          width: screenWidth * 0.9,
+          height: screenWidth * 0.4,
           decoration: BoxDecoration(
             // image: DecorationImage(
             //   image: NetworkImage(backgroundImage),
@@ -43,7 +45,14 @@ class CustomStackWidget extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              Image.asset(backgroundImage, fit: BoxFit.fill,),
+              ClipRRect(
+                child: SizedBox.expand(
+                  child: Image.asset(
+                    backgroundImage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -86,8 +95,8 @@ class CustomStackWidget extends StatelessWidget {
                 bottom: 16,
                 right: 16,
                 child: Container(
-                  width: 31,
-                  height: 31,
+                  width: screenWidth * 0.1,
+                  height: screenWidth * 0.1,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -103,7 +112,5 @@ class CustomStackWidget extends StatelessWidget {
         ),
       ),
     );
-
-
   }
 }
