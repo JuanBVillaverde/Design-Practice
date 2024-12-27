@@ -27,88 +27,92 @@ class CustomStackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
+
+        // MediaQuery.of(context).size.width;
 
     return GestureDetector(
       // onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        child: Container(
-          width: screenWidth * 0.9,
-          height: screenWidth * 0.4,
-          decoration: BoxDecoration(
-            // image: DecorationImage(
-            //   image: NetworkImage(backgroundImage),
-            //   fit: BoxFit.cover,
-            // ),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Stack(
-            children: [
-              ClipRRect(
-                child: SizedBox.expand(
-                  child: Image.asset(
-                    backgroundImage,
-                    fit: BoxFit.cover,
+        child: LayoutBuilder( builder: (context, constraints){
+          double containerWidth = constraints.maxWidth;
+          double containerHeight = constraints.maxHeight;
+          double buttonSize= containerWidth*0.1;
+           return Container(
+            width: screenWidth * 0.9,
+            height: screenWidth * 0.4,
+            decoration: BoxDecoration(
+
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  child: SizedBox.expand(
+                    child: Image.asset(
+                      backgroundImage,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  gradient: LinearGradient(
-                    colors: [
-                      colorGradient.withOpacity(1.0),
-                      colorGradient.withOpacity(0.1),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                      colors: [
+                        colorGradient.withOpacity(1.0),
+                        colorGradient.withOpacity(0.1),
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle,
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 14,
+                        ),
+                      ),
                     ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                Positioned(
+                  bottom: 16,
+                  right: 16,
+                  child: Container(
+                    width: buttonSize,
+                    height: buttonSize,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      subtitle,
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 14,
-                      ),
+                    child: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 24,
                     ),
-                  ],
-                ),
-              ),
-              Positioned(
-                bottom: 16,
-                right: 16,
-                child: Container(
-                  width: screenWidth * 0.1,
-                  height: screenWidth * 0.1,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 24,
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          );}
         ),
       ),
     );

@@ -6,7 +6,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({this.height = kToolbarHeight, super.key});
 
   @override
+
+
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.sizeOf(context).width;
+
+
+
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -29,7 +35,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Row(
+            child: Row(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +44,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                       'Puntos',
                       style: TextStyle(fontSize: 14.0, color: Colors.grey),
                     ),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     Text(
                       '500',
                       style: TextStyle(
@@ -49,7 +55,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 8.0),
+                const SizedBox(width: 8.0),
                 Icon(
                   Icons.emoji_events,
                   color: Colors.amber,
@@ -61,7 +67,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.notifications,
               color: Colors.black,
             ),
