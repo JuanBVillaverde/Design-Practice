@@ -43,7 +43,7 @@ class CustomCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title+'jjsjfdhjshdaaaaaaaaaaaaaaaaaaa',
+                    title,
                     style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,

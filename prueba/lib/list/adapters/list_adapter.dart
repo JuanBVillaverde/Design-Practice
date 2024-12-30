@@ -20,31 +20,30 @@ class ListAdapter extends BaseAdapter {
   Widget medium(BuildContext context) {
     print('medium');
     return Scaffold(
-      // floatingActionButton: alertButton,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.deepOrange,
         elevation: 0,
-      leading: menu,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Spacer(),
-          Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
+        leading: menu,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Spacer(),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  points,
+                  notifications,
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                points,
-                notifications,
-              ],
-            ),
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(
@@ -59,7 +58,9 @@ class ListAdapter extends BaseAdapter {
           child: titleText,
         ),
         const SizedBox(height: 4.0),
-        productList,
+        Expanded(
+          child: productList,
+        )
       ]),
     );
   }
@@ -86,7 +87,7 @@ class ListAdapter extends BaseAdapter {
               child: Row(
                 children: [
                   points,
-                  SizedBox(
+                  const SizedBox(
                     width: 2.0,
                   ),
                   notifications,
@@ -109,7 +110,9 @@ class ListAdapter extends BaseAdapter {
           child: titleText,
         ),
         const SizedBox(height: 4.0),
-        productList,
+        Expanded(
+          child: productList,
+        )
       ]),
     );
   }
@@ -118,66 +121,51 @@ class ListAdapter extends BaseAdapter {
   Widget ultraWide(BuildContext context) {
     print('Ultrawide');
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                children: [
-                  points,
-                  SizedBox(
-                    width: 2.0,
+      body: Row(
+        children: [
+          Container(
+            color: Colors.deepOrange,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                menu,
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  notifications,
-                ],
-              ),
+                  child: Column(
+                    children: [
+                      points,
+                      const SizedBox(width: 2.0),
+                      notifications,
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-
-        // titleText,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 8.0,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 8.0),
+                searchBar,
+                const SizedBox(height: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: titleText,
+                ),
+                const SizedBox(height: 4.0),
+                Expanded(
+                  child: productList,
+                ),
+              ],
             ),
-            searchBar,
-            const SizedBox(
-              height: 8.0,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: titleText,
-            ),
-            const SizedBox(height: 4.0),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 2 / 1,
-                children: [
-                  productList,
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -186,66 +174,52 @@ class ListAdapter extends BaseAdapter {
   Widget wide(BuildContext context) {
     print('wide');
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                children: [
-                  points,
-                  SizedBox(
-                    width: 2.0,
+      // floatingActionButton: alertButton,
+      body: Row(
+        children: [
+          Container(
+            color: Colors.deepOrange,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                menu,
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  notifications,
-                ],
-              ),
+                  child: Column(
+                    children: [
+                      points,
+                      const SizedBox(width: 2.0),
+                      notifications,
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-
-        // titleText,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 8.0,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 8.0),
+                searchBar,
+                const SizedBox(height: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: titleText,
+                ),
+                const SizedBox(height: 4.0),
+                Expanded(
+                  child: productList,
+                ),
+              ],
             ),
-            searchBar,
-            const SizedBox(
-              height: 8.0,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: titleText,
-            ),
-            const SizedBox(height: 4.0),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 2 / 1,
-                children: [
-                  productList,
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

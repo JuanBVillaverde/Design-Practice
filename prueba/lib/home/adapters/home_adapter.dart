@@ -36,89 +36,58 @@ class HomeAdapter extends BaseAdapter {
     print('medium');
     return Scaffold(
       floatingActionButton: alertButton,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      // leading: menu,
-      // title: Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     const Spacer(),
-      //     Container(
-      //       padding:
-      //           const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-      //       decoration: BoxDecoration(
-      //         color: Colors.white,
-      //         borderRadius: BorderRadius.circular(20),
-      //       ),
-      //       child: Row(
-      //         children: [
-      //           points,
-      //           notifications,
-      //         ],
-      //       ),
-      //     ),
-      //   ],
-      // ),
-      // ),
-      body: Row(
-        children: [
-          Container(
-            color: Colors.deepOrange,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                menu,
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 6.0),
-                  decoration: BoxDecoration(
-                    // color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(20),
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
+        elevation: 0,
+        leading: menu,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Spacer(),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  points,
+                  SizedBox(
+                    width: 2.0,
                   ),
-                  child: Column(
-                    children: [
-                      points,
-                      SizedBox(width: 2.0,),
-                      notifications,
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: SizedBox(
-              width: MediaQuery.sizeOf(context).width,
-              child: SingleChildScrollView(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.sizeOf(context).width * 0.05),
-                        child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              titleText,
-                            ]),
-                      ),
-                      cardWelcome,
-                      SizedBox(
-                        height: 4.0,
-                      ),
-                      cardEvents,
-                      SizedBox(
-                        height: 4.0,
-                      ),
-                      cadrEVA,
-                    ]),
+                  notifications,
+                ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      body: SizedBox(
+        width: MediaQuery.sizeOf(context).width,
+        child: SingleChildScrollView(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
+              child:
+                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                titleText,
+              ]),
+            ),
+            cardWelcome,
+            SizedBox(
+              height: 4.0,
+            ),
+            cardEvents,
+            SizedBox(
+              height: 4.0,
+            ),
+            cadrEVA,
+          ]),
+        ),
       ),
     );
   }
@@ -146,7 +115,9 @@ class HomeAdapter extends BaseAdapter {
               child: Row(
                 children: [
                   points,
-  SizedBox(width: 2.0,),
+                  SizedBox(
+                    width: 2.0,
+                  ),
                   notifications,
                 ],
               ),
@@ -187,55 +158,67 @@ class HomeAdapter extends BaseAdapter {
     print('Ultrawide');
     return Scaffold(
       floatingActionButton: alertButton,
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
+      body: Row(
+        children: [
+          Container(
+            color: Colors.deepOrange,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                menu,
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      points,
+                      SizedBox(width: 2.0),
+                      notifications,
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  points,
-  SizedBox(width: 2.0,),
-                  notifications,
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        titleText,
+                      ],
+                    ),
+                  ),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16.0,
+                    mainAxisSpacing: 16.0,
+                    childAspectRatio: 2 / 1,
+                    shrinkWrap:
+                        true,
+                    physics:
+                        NeverScrollableScrollPhysics(),
+                    children: [
+                      cardWelcome,
+                      cardEvents,
+                      cadrEVA,
+                    ],
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-
-        // titleText,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            titleText,
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 2 / 1,
-                children: [
-                  cardWelcome,
-                  cardEvents,
-                  cadrEVA,
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -245,55 +228,67 @@ class HomeAdapter extends BaseAdapter {
     print('wide');
     return Scaffold(
       floatingActionButton: alertButton,
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
+      body: Row(
+        children: [
+          Container(
+            color: Colors.deepOrange,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                menu,
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      points,
+                      SizedBox(width: 2.0),
+                      notifications,
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  points,
-  SizedBox(width: 2.0,),
-                  notifications,
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        titleText,
+                      ],
+                    ),
+                  ),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16.0,
+                    mainAxisSpacing: 16.0,
+                    childAspectRatio: 2 / 1,
+                    shrinkWrap:
+                        true,
+                    physics:
+                        NeverScrollableScrollPhysics(),
+                    children: [
+                      cardWelcome,
+                      cardEvents,
+                      cadrEVA,
+                    ],
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-
-        // titleText,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            titleText,
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 2 / 1,
-                children: [
-                  cardWelcome,
-                  cardEvents,
-                  cadrEVA,
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
