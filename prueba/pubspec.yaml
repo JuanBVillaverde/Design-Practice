@@ -60,21 +60,22 @@ flutter:
 
 
   assets:
-    - assets/images/cartagena_bg.png
-    - assets/images/events_bg.png
-    - assets/images/EVA.png
+    - assets/images/
+#    - assets/images/cartagena_bg.png
+#    - assets/images/events_bg.png
+#    - assets/images/EVA.png
     - assets/data/cards_data.json
-    - assets/images/1.png
-    - assets/images/2.png
-    - assets/images/3.png
-    - assets/images/4.png
-    - assets/images/5.png
-    - assets/images/QR.png
-    - assets/images/QRSelected.png
-    - assets/images/QRIcon.png
-    - assets/images/PreciosSelected.png
-    - assets/images/Precios.png
-    - assets/images/MapaSelected.png
-    - assets/images/Mapa.png
-    - assets/images/Inicio.png
-    - assets/images/InicioSelected.png
+#    - assets/images/1.png
+#    - assets/images/2.png
+#    - assets/images/3.png
+#    - assets/images/4.png
+#    - assets/images/5.png
+#    - assets/images/QR.png
+#    - assets/images/QRSelected.png
+#    - assets/images/QRIcon.png
+#    - assets/images/PreciosSelected.png
+#    - assets/images/Precios.png
+#    - assets/images/MapaSelected.png
+#    - assets/images/Mapa.png
+#    - assets/images/Inicio.png
+#    - assets/images/InicioSelected.png

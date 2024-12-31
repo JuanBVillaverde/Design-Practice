@@ -6,6 +6,12 @@ abstract class BaseAdapter {
   Widget wide(BuildContext context);
   Widget ultraWide(BuildContext context);
 
+
+  bool isWideScreen(BuildContext context){
+    final screenWidth = MediaQuery.of(context).size.width;
+    return screenWidth >=1024;
+  }
+
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     Widget size;

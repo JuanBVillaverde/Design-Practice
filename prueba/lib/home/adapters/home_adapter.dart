@@ -34,59 +34,62 @@ class HomeAdapter extends BaseAdapter {
   @override
   Widget medium(BuildContext context) {
     print('medium');
-    return Scaffold(
-      floatingActionButton: alertButton,
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white54,
+        floatingActionButton: alertButton,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: menu,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Spacer(),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    points,
+                    SizedBox(
+                      width: 2.0,
+                    ),
+                    notifications,
+                  ],
+                ),
               ),
-              child: Row(
-                children: [
-                  points,
-                  SizedBox(
-                    width: 2.0,
-                  ),
-                  notifications,
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      body: SizedBox(
-        width: MediaQuery.sizeOf(context).width,
-        child: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                titleText,
-              ]),
-            ),
-            cardWelcome,
-            SizedBox(
-              height: 4.0,
-            ),
-            cardEvents,
-            SizedBox(
-              height: 4.0,
-            ),
-            cadrEVA,
-          ]),
+        body: SizedBox(
+          width: MediaQuery.sizeOf(context).width,
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                child:
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  titleText,
+                ]),
+              ),
+              cardWelcome,
+              SizedBox(
+                height: 4.0,
+              ),
+              cardEvents,
+              SizedBox(
+                height: 4.0,
+              ),
+              cadrEVA,
+            ]),
+          ),
         ),
       ),
     );
@@ -95,59 +98,62 @@ class HomeAdapter extends BaseAdapter {
   @override
   Widget small(BuildContext context) {
     print('small');
-    return Scaffold(
-      floatingActionButton: alertButton,
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-        leading: menu,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white54,
+        floatingActionButton: alertButton,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: menu,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Spacer(),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    points,
+                    SizedBox(
+                      width: 2.0,
+                    ),
+                    notifications,
+                  ],
+                ),
               ),
-              child: Row(
-                children: [
-                  points,
-                  SizedBox(
-                    width: 2.0,
-                  ),
-                  notifications,
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      body: SizedBox(
-        width: MediaQuery.sizeOf(context).width,
-        child: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                titleText,
-              ]),
-            ),
-            cardWelcome,
-            SizedBox(
-              height: 4.0,
-            ),
-            cardEvents,
-            SizedBox(
-              height: 4.0,
-            ),
-            cadrEVA,
-          ]),
+        body: SizedBox(
+          width: MediaQuery.sizeOf(context).width,
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                child:
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  titleText,
+                ]),
+              ),
+              cardWelcome,
+              SizedBox(
+                height: 4.0,
+              ),
+              cardEvents,
+              SizedBox(
+                height: 4.0,
+              ),
+              cadrEVA,
+            ]),
+          ),
         ),
       ),
     );
@@ -156,69 +162,68 @@ class HomeAdapter extends BaseAdapter {
   @override
   Widget ultraWide(BuildContext context) {
     print('Ultrawide');
-    return Scaffold(
-      floatingActionButton: alertButton,
-      body: Row(
-        children: [
-          Container(
-            color: Colors.deepOrange,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                menu,
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      points,
-                      SizedBox(width: 2.0),
-                      notifications,
-                    ],
-                  ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white54,
+        // floatingActionButton: alertButton,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          // leading: titleText,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              titleText,
+              const Spacer(),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ],
-            ),
+                child: Row(
+                  children: [
+                    points,
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    notifications,
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    menu,
+                  ],
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.sizeOf(context).width * 0.05),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+        ),
+        body:
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+      
+                    GridView.count(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16.0,
+                      mainAxisSpacing: 16.0,
+                      childAspectRatio: 2 / 1,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
                       children: [
-                        titleText,
+                        cardWelcome,
+                        cardEvents,
+                        cadrEVA,
                       ],
                     ),
-                  ),
-                  GridView.count(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16.0,
-                    mainAxisSpacing: 16.0,
-                    childAspectRatio: 2 / 1,
-                    shrinkWrap:
-                        true,
-                    physics:
-                        NeverScrollableScrollPhysics(),
-                    children: [
-                      cardWelcome,
-                      cardEvents,
-                      cadrEVA,
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+      
       ),
     );
   }
@@ -226,69 +231,71 @@ class HomeAdapter extends BaseAdapter {
   @override
   Widget wide(BuildContext context) {
     print('wide');
-    return Scaffold(
-      floatingActionButton: alertButton,
-      body: Row(
-        children: [
-          Container(
-            color: Colors.deepOrange,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                menu,
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      points,
-                      SizedBox(width: 2.0),
-                      notifications,
-                    ],
-                  ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white54,
+        // floatingActionButton: alertButton,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          // leading: titleText,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              titleText,
+              const Spacer(),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
                 ),
+                child: Row(
+                  children: [
+                    points,
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    notifications,
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    menu,
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      
+        body: Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  child: SingleChildScrollView(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          cardWelcome,
+                          SizedBox(
+                            height: 4.0,
+                          ),
+                          cardEvents,
+                          SizedBox(
+                            height: 4.0,
+                          ),
+                          cadrEVA,
+                        ]),
+                  ),
+                )
               ],
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.sizeOf(context).width * 0.05),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        titleText,
-                      ],
-                    ),
-                  ),
-                  GridView.count(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16.0,
-                    mainAxisSpacing: 16.0,
-                    childAspectRatio: 2 / 1,
-                    shrinkWrap:
-                        true,
-                    physics:
-                        NeverScrollableScrollPhysics(),
-                    children: [
-                      cardWelcome,
-                      cardEvents,
-                      cadrEVA,
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

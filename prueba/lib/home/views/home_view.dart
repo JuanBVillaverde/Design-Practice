@@ -30,11 +30,27 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget buildMenu() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        Icons.menu,
-        color: Colors.black,
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(0, 2),
+              blurRadius: 1,
+              spreadRadius: 1,
+            )
+          ]),
+      child: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
       ),
     );
   }
@@ -45,6 +61,14 @@ class _HomeViewState extends State<HomeView> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            offset: Offset(0, 2),
+            blurRadius: 1,
+            spreadRadius: 1,
+          ),
+        ],
       ),
       child: const Row(
         children: [
@@ -78,11 +102,27 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget buildNotifications() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        Icons.notifications,
-        color: Colors.black,
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(0, 2),
+              blurRadius: 1,
+              spreadRadius: 1,
+            )
+          ]),
+      child: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.notifications,
+          color: Colors.black,
+        ),
+        // style: ButtonStyle(
+        //   backgroundColor: MaterialStateProperty.all (Colors.white),
+        // ),
       ),
     );
   }

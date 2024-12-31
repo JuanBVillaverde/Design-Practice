@@ -28,7 +28,13 @@ class CustomStackWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
-
+    final double height;
+    if(screenWidth>=1024 && screenWidth<1200){
+      height=180.0;
+    }
+    else{
+      height = screenWidth*0.4;
+    }
         // MediaQuery.of(context).size.width;
 
     return GestureDetector(
@@ -41,7 +47,7 @@ class CustomStackWidget extends StatelessWidget {
           double buttonSize= containerWidth*0.1;
            return Container(
             width: screenWidth * 0.9,
-            height: screenWidth * 0.4,
+            height: height,
             decoration: BoxDecoration(
 
               borderRadius: BorderRadius.circular(12),
