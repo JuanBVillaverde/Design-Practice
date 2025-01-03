@@ -36,8 +36,8 @@ class _HomeViewState extends State<HomeView> {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: Offset(0, 2),
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(0, 0.5),
               blurRadius: 1,
               spreadRadius: 1,
             )
@@ -60,19 +60,19 @@ class _HomeViewState extends State<HomeView> {
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(100),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: Offset(0, 2),
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(0, 0.5),
             blurRadius: 1,
             spreadRadius: 1,
           ),
         ],
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -90,11 +90,11 @@ class _HomeViewState extends State<HomeView> {
               ),
             ],
           ),
-          SizedBox(width: 8.0),
-          Icon(
-            Icons.emoji_events,
-            color: Colors.amber,
-            size: 24.0,
+          const SizedBox(width: 8.0),
+          Image.asset(
+            'assets/images/cup.png',
+              height: 24.0,
+              width: 24.0,
           ),
         ],
       ),
@@ -104,25 +104,32 @@ class _HomeViewState extends State<HomeView> {
   Widget buildNotifications() {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: Offset(0, 2),
-              blurRadius: 1,
-              spreadRadius: 1,
-            )
-          ]),
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(0, 0.5),
+            blurRadius: 1,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
       child: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.notifications,
-          color: Colors.black,
+        onPressed: () {
+        },
+        icon: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage('assets/images/bell.png'),
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          width: 45,
+          height: 45,
         ),
-        // style: ButtonStyle(
-        //   backgroundColor: MaterialStateProperty.all (Colors.white),
-        // ),
+        tooltip: 'Notificaciones',
       ),
     );
   }

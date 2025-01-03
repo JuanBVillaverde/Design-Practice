@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prueba/list/adapters/list_adapter.dart';
 import 'package:prueba/list/widgets/custom_card_widget.dart';
+import 'package:prueba/state/app_state.dart';
 
 import '../../custom_widgets/custom_appbar.dart';
 import '../../custom_widgets/custom_searchbar.dart';
@@ -17,29 +20,45 @@ class ListaView extends StatefulWidget {
 
 class _ListaViewState extends State<ListaView> {
   final searchController = TextEditingController();
-  late Future<List<ItemCard>> items;
+  List<ItemCard>? items;
   late ListAdapter adapter;
 
   @override
   void initState() {
     super.initState();
-    items = loadItems();
+
     adapter = ListAdapter(
       buildMenu(),
       buildPoints(),
       buildNotifications(),
       buildSearchBar(),
       buildTitteText(),
-      buildProductList(),
+      AppState().items,
     );
   }
 
   Widget buildMenu() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        Icons.menu,
-        color: Colors.black,
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(0, 0.5),
+              blurRadius: 1,
+              spreadRadius: 1,
+            )
+          ]),
+      child: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
       ),
     );
   }
@@ -49,11 +68,19 @@ class _ListaViewState extends State<ListaView> {
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(100),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(0, 0.5),
+            blurRadius: 1,
+            spreadRadius: 1,
+          ),
+        ],
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -71,11 +98,11 @@ class _ListaViewState extends State<ListaView> {
               ),
             ],
           ),
-          SizedBox(width: 8.0),
-          Icon(
-            Icons.emoji_events,
-            color: Colors.amber,
-            size: 24.0,
+          const SizedBox(width: 8.0),
+          Image.asset(
+            'assets/images/cup.png',
+            height: 24.0,
+            width: 24.0,
           ),
         ],
       ),
@@ -83,11 +110,34 @@ class _ListaViewState extends State<ListaView> {
   }
 
   Widget buildNotifications() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        Icons.notifications,
-        color: Colors.black,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(0, 0.5),
+            blurRadius: 1,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: IconButton(
+        onPressed: () {
+        },
+        icon: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage('assets/images/bell.png'),
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          width: 45,
+          height: 45,
+        ),
+        tooltip: 'Notificaciones',
       ),
     );
   }
@@ -110,56 +160,11 @@ class _ListaViewState extends State<ListaView> {
     );
   }
 
-  Widget buildProductList() {
-    return Expanded(
-      child: FutureBuilder<List<ItemCard>>(
-        future: items,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
-            );
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(
-              child: Text('No hay datos disponibles.'),
-            );
-          }
-          final List<ItemCard> items = snapshot.data!;
-          return ListView.builder(
-            itemCount: items.length,
-            // padding: const EdgeInsets.symmetric(vertical: 1.0),
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 1.0),
-                child: CustomCardWidget(
-                  title: item.title,
-                  category: item.category,
-                  price: item.price,
-                  imageUrl: item.imageUrl,
-                ),
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
-
   Future<List<ItemCard>> loadItems() async {
-    try {
-      final String jsonString =
-          await rootBundle.loadString('assets/data/cards_data.json');
-      // print(jsonString);
-      return ItemCard.fromJsonList(jsonString);
-    } catch (e) {
-      print('error $e');
-      throw e;
-    }
+    final String response =
+        await rootBundle.loadString('assets/data/cards_data.json');
+    final List<dynamic> data = jsonDecode(response);
+    return data.map((json) => ItemCard.fromJson(json)).toList();
   }
 
   @override
@@ -167,76 +172,6 @@ class _ListaViewState extends State<ListaView> {
     double width = MediaQuery.sizeOf(context).width;
     print('widht: $width');
 
-    // adapter = HomeAdapter(buildTitleText(), buildCardWelcome(),
-    //     buildCardEvents(), buildCardEVA(), buildAlertButton());
     return adapter.build(context);
   }
-
-// @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: const CustomAppbar(),
-  //     body: Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         const SizedBox(height: 8.0,),
-  //         CustomSearchbar(
-  //           controller: searchController,
-  //           onFilterPressed: () {},
-  //           text: '¿Qué producto/servicio quieres buscar?',
-  //         ),
-  //         const SizedBox(height: 8.0),
-  //         const Padding(
-  //           padding: EdgeInsets.symmetric(horizontal: 16.0),
-  //           child: Text(
-  //             'Productos destacados',
-  //             style: TextStyle(
-  //               fontWeight: FontWeight.bold,
-  //               fontSize: 14.0,
-  //
-  //             ),
-  //           ),
-  //         ),
-  //         const SizedBox(height: 4.0),
-  //         Expanded(
-  //           child: FutureBuilder<List<ItemCard>>(
-  //             future: items,
-  //             builder: (context, snapshot) {
-  //               if (snapshot.connectionState == ConnectionState.waiting) {
-  //                 return const Center(
-  //                   child: CircularProgressIndicator(),
-  //                 );
-  //               } else if (snapshot.hasError) {
-  //                 return Center(
-  //                   child: Text('Error: ${snapshot.error}'),
-  //                 );
-  //               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-  //                 return const Center(
-  //                   child: Text('No hay datos disponibles.'),
-  //                 );
-  //               }
-  //               final List<ItemCard> items = snapshot.data!;
-  //               return ListView.builder(
-  //                 itemCount: items.length,
-  //                 // padding: const EdgeInsets.symmetric(vertical: 1.0),
-  //                 itemBuilder: (context, index) {
-  //                   final item = items[index];
-  //                   return Padding(
-  //                     padding: const EdgeInsets.symmetric(vertical: 1.0),
-  //                     child: CustomCardWidget(
-  //                       title: item.title,
-  //                       category: item.category,
-  //                       price: item.price,
-  //                       imageUrl: item.imageUrl,
-  //                     ),
-  //                   );
-  //                 },
-  //               );
-  //             },
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 }

@@ -1,10 +1,38 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:prueba/custom_widgets/custon_navigationbar.dart';
 import 'package:prueba/home/views/home_view.dart';
+import 'package:prueba/state/app_state.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'list/models/item_card.dart';
+
+
+Future<List<ItemCard>> loadItems() async {
+  final String response = await rootBundle.loadString(
+      'assets/data/cards_data.json');
+  final List<dynamic> data = jsonDecode(response);
+  return data.map((json) => ItemCard.fromJson(json)).toList();
 }
+
+Future<void> loadItemsAsync() async{
+
+  try {
+    AppState().items = await loadItems();
+    runApp(const MyApp());
+  }
+  catch (e) {
+    print("Error: $e");
+  }
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await loadItemsAsync();
+  runApp(MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

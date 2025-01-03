@@ -27,57 +27,49 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
 
   final List<NavigationItem> navigationItems = [
     NavigationItem(
-        'assets/images/Inicio.png', 'assets/images/InicioSelected.png', '', 'assets/images/InicioH.png', 'assets/images/InicioSelectedH.png' ),
+        'assets/images/Inicio.png',
+        'assets/images/InicioSelected.png',
+        '',
+        'assets/images/InicioH.png',
+        'assets/images/InicioSelectedH.png'),
+    NavigationItem('assets/images/Mapa.png', 'assets/images/MapaSelected.png',
+        '', 'assets/images/mapaH.png', 'assets/images/mapaH.png'),
     NavigationItem(
-        'assets/images/Mapa.png', 'assets/images/MapaSelected.png', '', 'assets/images/mapaH.png', 'assets/images/mapaH.png'),
-    NavigationItem(
-        'assets/images/Precios.png', 'assets/images/PReciosSelected.png', '', 'assets/images/PreciosH.png', 'assets/images/PreciosSelectedH.png'),
-    NavigationItem(
-        'assets/images/QRIcon.png', 'assets/images/QRSelected.png', '', 'assets/images/QRH.png', 'assets/images/QRH.png'),
+        'assets/images/Precios.png',
+        'assets/images/PReciosSelected.png',
+        '',
+        'assets/images/PreciosH.png',
+        'assets/images/PreciosSelectedH.png'),
+    NavigationItem('assets/images/QRIcon.png', 'assets/images/QRSelected.png',
+        '', 'assets/images/QRH.png', 'assets/images/QRH.png'),
   ];
 
   late NavigationbarAdapter adapter;
 
-  // final List<String> icons = [
-  //   'assets/images/Inicio.png',
-  //   'assets/images/Mapa.png',
-  //   'assets/images/Precios.png',
-  //   'assets/images/QRIcon.png',
-  // ];
-  //
-  // final List<String> selectedIcons = [
-  //   'assets/images/InicioSelected.png',
-  //   'assets/images/MapaSelected.png',
-  //   'assets/images/PreciosSelected.png',
-  //   'assets/images/QRSelected.png',
-  // ];
-
-
-
   void onItemChanged(int index) {
     setState(() {
       currentIndex = index;
+      print('Current index: $currentIndex');
     });
-
   }
 
   @override
   void initState() {
     super.initState();
-    adapter =
-        NavigationbarAdapter(onItemChanged, navigationItems, currentIndex);
+    // adapter =
+    //     NavigationbarAdapter(onItemChanged, navigationItems, currentIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    final navigationBar = adapter.build(context);
+    final navigationBar = NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).build(context);
 
     return Scaffold(
       body: Row(children: [
-        if (adapter.isWideScreen(context)) navigationBar,
+        if (NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).isWideScreen(context)) navigationBar,
         Expanded(child: screens[currentIndex]),
       ]),
-      bottomNavigationBar: adapter.isWideScreen(context) ? null : navigationBar,
+      bottomNavigationBar: NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).isWideScreen(context) ? null : navigationBar,
     );
   }
 
