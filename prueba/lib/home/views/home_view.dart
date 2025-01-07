@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba/custom_widgets/custom_appbar.dart';
 import 'package:prueba/home/adapters/home_adapter.dart';
+import 'package:prueba/home/styles/home_styles.dart';
 import 'package:prueba/home/widgets/custom_stack_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -13,20 +14,61 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   late HomeAdapter adapter;
+  late HomeStyles _styles
+  = HomeStyles(reportButtonPadding: 0, titleStyle: TextStyle(fontSize: 14));
 
   @override
   void initState() {
     super.initState();
 
     adapter = HomeAdapter(
-        buildMenu(),
-        buildPoints(),
-        buildNotifications(),
-        buildTitleText(),
-        buildCardWelcome(),
-        buildCardEvents(),
-        buildCardEVA(),
-        buildAlertButton());
+      menu: buildMenu(),
+      points: buildPoints(),
+      notifications: buildNotifications(),
+      titleText: buildTitleText(),
+      cardWelcome: buildCardWelcome(),
+      cardEvents: buildCardEvents(),
+      cadrEVA: buildCardEVA(),
+      alertButton: buildAlertButton(),
+      styles: setStyles,
+      // styles: (HomeStyles styles){
+      //   setState(() {
+      //     _styles = styles;
+      //   });
+      //
+      // }
+    );
+
+
+  }
+
+  void setStyles(HomeStyles styles) {
+
+    print ('Styles: ${styles.titleStyle.fontSize}');
+
+    setState(() {
+      _styles = styles;
+
+    });
+    print ('Styles: ${styles.titleStyle.fontSize}');
+
+
+
+
+  }
+
+  Widget buildTitleText() {
+    return
+      Expanded(
+      child:
+      Text(
+        '¡Bienvenido! Conéctate con lo mejor de Cartagena aquí',
+        textAlign: TextAlign.start,
+        style: _styles.titleStyle,
+        softWrap: true,
+        overflow: TextOverflow.visible,
+      ),
+    );
   }
 
   Widget buildMenu() {
@@ -93,8 +135,8 @@ class _HomeViewState extends State<HomeView> {
           const SizedBox(width: 8.0),
           Image.asset(
             'assets/images/cup.png',
-              height: 24.0,
-              width: 24.0,
+            height: 24.0,
+            width: 24.0,
           ),
         ],
       ),
@@ -116,8 +158,7 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       child: IconButton(
-        onPressed: () {
-        },
+        onPressed: () {},
         icon: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
@@ -134,20 +175,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget buildTitleText() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Text(
-        '¡Bienvenido! Conéctate con\nlo mejor de Cartagena aquí',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 0.0,
-        ),
-      ),
-    );
-  }
+
 
   Widget buildCardWelcome() {
     return CustomStackWidget(
@@ -212,6 +240,24 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     print('widht: $width');
+
+    //
+    // if (width < 600) {
+    //   _styles = HomeStyles(
+    //     reportButtonPadding: 0,
+    //     titleStyle: TextStyle(fontSize: 10.0),
+    //   );
+    // } else if (width < 1024) {
+    //   _styles = HomeStyles(
+    //     reportButtonPadding: 0,
+    //     titleStyle: TextStyle(fontSize: 15.0),
+    //   );
+    // } else {
+    //   _styles = HomeStyles(
+    //     reportButtonPadding: 0,
+    //     titleStyle: TextStyle(fontSize: 20.0),
+    //   );
+    // }
 
     // adapter = HomeAdapter(buildTitleText(), buildCardWelcome(),
     //     buildCardEvents(), buildCardEVA(), buildAlertButton());

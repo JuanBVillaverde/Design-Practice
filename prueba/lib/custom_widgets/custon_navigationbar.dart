@@ -27,21 +27,19 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
 
   final List<NavigationItem> navigationItems = [
     NavigationItem(
-        'assets/images/Inicio.png',
-        'assets/images/InicioSelected.png',
-        '',
-        'assets/images/InicioH.png',
-        'assets/images/InicioSelectedH.png'),
-    NavigationItem('assets/images/Mapa.png', 'assets/images/MapaSelected.png',
-        '', 'assets/images/mapaH.png', 'assets/images/mapaH.png'),
+        'assets/images/home.png',
+        'assets/images/homeSelected.png',
+        'Inicio'
+        ),
+    NavigationItem('assets/images/map.png', 'assets/images/mapSelected.png',
+        'Mapa' ),
     NavigationItem(
-        'assets/images/Precios.png',
-        'assets/images/PReciosSelected.png',
-        '',
-        'assets/images/PreciosH.png',
-        'assets/images/PreciosSelectedH.png'),
+        'assets/images/prices.png',
+        'assets/images/pricesSelected.png',
+        'Precios'
+     ),
     NavigationItem('assets/images/QRIcon.png', 'assets/images/QRSelected.png',
-        '', 'assets/images/QRH.png', 'assets/images/QRH.png'),
+        'Lector QR'),
   ];
 
   late NavigationbarAdapter adapter;

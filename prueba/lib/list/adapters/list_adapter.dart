@@ -42,6 +42,7 @@ class ListAdapter extends BaseAdapter {
                   points,
                   SizedBox(width: 12.0,),
                   notifications,
+                  SizedBox(width: 20.0,)
                 ],
               ),
             ),
@@ -49,27 +50,28 @@ class ListAdapter extends BaseAdapter {
         ),
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const SizedBox(
-          height: 8.0,
-        ),
-        searchBar,
-        const SizedBox(
-          height: 8.0,
-        ),
+
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.only(top: 10.0, left: 16.0, right: 16.0),
+          child: searchBar,
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, bottom: 20.0, left: 16.0, right: 200.0),
           child: titleText,
         ),
-        const SizedBox(height: 4.0),
+
         Expanded(
           child: ListView.builder(
             itemCount: items!.length,
             // padding: const EdgeInsets.symmetric(vertical: 1.0),
             itemBuilder: (context, index) {
               final item = items![index];
-              return Padding(
+              return
+                Padding(
                 padding: const EdgeInsets.symmetric(vertical: 1.0),
-                child: CustomCardWidget(
+                child:
+                CustomCardWidget(
                   title: item.title,
                   category: item.category,
                   price: item.price,

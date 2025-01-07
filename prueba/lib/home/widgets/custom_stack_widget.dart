@@ -40,11 +40,11 @@ class CustomStackWidget extends StatelessWidget {
     return GestureDetector(
       // onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 9.0),
         child: LayoutBuilder( builder: (context, constraints){
           double containerWidth = constraints.maxWidth;
-          double containerHeight = constraints.maxHeight;
-          double buttonSize= containerWidth*0.1;
+          // double containerHeight = constraints.maxHeight;
+          // double buttonSize= containerWidth*0.1;
            return Container(
             width: screenWidth * 0.9,
             height: height,
@@ -55,13 +55,17 @@ class CustomStackWidget extends StatelessWidget {
             child: Stack(
               children: [
                 ClipRRect(
-                  child: SizedBox.expand(
-                    child: Image.asset(
-                      backgroundImage,
-                      fit: BoxFit.cover,
+                  borderRadius: BorderRadius.circular(12),
+                    child: SizedBox.expand(
+                      child: Image.asset(
+                        backgroundImage,
+                        // width: double.infinity,
+                        // height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
+
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
@@ -90,11 +94,18 @@ class CustomStackWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        subtitle,
-                        style: const TextStyle(
-                          color: Colors.white70,
-                          fontSize: 14,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 95.0),
+                        child: Expanded(
+                          child: Text(
+                            subtitle,
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                            ),
+                            overflow: TextOverflow.visible,
+                            softWrap: true,
+                          ),
                         ),
                       ),
                     ],
@@ -104,8 +115,8 @@ class CustomStackWidget extends StatelessWidget {
                   bottom: 16,
                   right: 16,
                   child: Container(
-                    width: buttonSize,
-                    height: buttonSize,
+                    width: 31,
+                    height: 31,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
