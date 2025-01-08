@@ -29,7 +29,7 @@ class CustomStackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
     final double height;
-    if(screenWidth>=1024 && screenWidth<1200){
+    if(screenWidth>=1024){
       height=180.0;
     }
     else{
@@ -41,11 +41,12 @@ class CustomStackWidget extends StatelessWidget {
       // onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 9.0),
-        child: LayoutBuilder( builder: (context, constraints){
-          double containerWidth = constraints.maxWidth;
+        // child: LayoutBuilder( builder: (context, constraints){
+          // double containerWidth = constraints.maxWidth;
           // double containerHeight = constraints.maxHeight;
           // double buttonSize= containerWidth*0.1;
-           return Container(
+          //  return
+          child: Container(
             width: screenWidth * 0.9,
             height: height,
             decoration: BoxDecoration(
@@ -129,9 +130,10 @@ class CustomStackWidget extends StatelessWidget {
                 ),
               ],
             ),
-          );}
+          ),
+  // }
         ),
-      ),
+      // ),
     );
   }
 }

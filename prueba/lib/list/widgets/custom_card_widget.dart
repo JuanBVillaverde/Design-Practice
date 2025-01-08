@@ -123,21 +123,25 @@ class CustomCardWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                    Flexible(
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     const SizedBox(
                       height: 4.0,
                     ),
-                    Text(
-                      category,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        color: Colors.grey,
+                    Flexible(
+                      child: Text(
+                        category,
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -145,21 +149,25 @@ class CustomCardWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          price,
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
+                        Flexible(
+                          child: Text(
+                            price,
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         const SizedBox(
                           width: 8.0,
                         ),
-                        const Text(
-                          'Precio sugerido',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.grey,
+                        Flexible(
+                          child: const Text(
+                            'Precio sugerido',
+                            style: TextStyle(
+                              fontSize: 10.0,
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
                       ],

@@ -75,6 +75,7 @@ class NavigationbarAdapter extends BaseAdapter {
     // final double iconSize = MediaQuery.of(context).size.width > 1200 ? 80 : 60;
 
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
           width: 200.0,
@@ -86,6 +87,7 @@ class NavigationbarAdapter extends BaseAdapter {
               //   child:
                   Expanded(
                     child:NavigationRail(
+                      minWidth: 200,
                       selectedIndex: selectedIndex,
                       onDestinationSelected: onItemSelected,
                       labelType: NavigationRailLabelType.none,
@@ -98,22 +100,28 @@ class NavigationbarAdapter extends BaseAdapter {
                         final isSelected = selectedIndex == items.indexOf(item);
                         return NavigationRailDestination(
                           icon: Padding(
-                            padding: const EdgeInsets.only(bottom: 12.0),
+                            padding: const EdgeInsets.only(bottom: 12.0, left: 20.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Image.asset(
-                                  isSelected ? item.selectedIcon : item.icon,
-                                  width: 20,
-                                  height: 19,
-                                  fit: BoxFit.fill,
+                                Flexible(
+                                  child: Image.asset(
+                                    isSelected ? item.selectedIcon : item.icon,
+                                    width: 20,
+                                    height: 19,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                                 const SizedBox(width: 8),
-                                Text(
-                                  item.label,
-                                  style: TextStyle(
-                                    color: isSelected ? Colors.orange : Colors.grey,
-                                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                Flexible(
+                                  child: Text(
+                                    item.label,
+                                    style: TextStyle(
+                                      color: isSelected ? Colors.orange : Colors.grey,
+                                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                    ),
+                                    overflow: TextOverflow.visible,
+                                    maxLines: 1,
                                   ),
                                 ),
                               ],
@@ -197,95 +205,98 @@ class NavigationbarAdapter extends BaseAdapter {
       children: [
         Container(
           width: 120,
-          child: Column(
-            children: [
-              Expanded(
-                child: NavigationRail(
-                  selectedIndex: selectedIndex,
-                  onDestinationSelected: onItemSelected,
-                  labelType: NavigationRailLabelType.none,
-                  groupAlignment: -1.0,
-                  indicatorColor: Colors.transparent,
-                  destinations: items.map((item) {
-                    final isSelected = selectedIndex == items.indexOf(item);
-                    return NavigationRailDestination(
-                      icon:
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 32),
-                        child:
-                      Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.asset(
-                              isSelected ? item.selectedIcon : item.icon,
-                              width: isSelected ? 22 : 20,
-                              height: isSelected ? 21 : 19,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              item.label,
-                              style: TextStyle(
-                                color:
-                                    isSelected ? Colors.deepOrange : Colors.black,
-                                fontSize: 12,
+          // child: Padding(
+            // padding: const EdgeInsets.only(top: 91),
+            child: Column(
+              children: [
+                Expanded(
+                  child: NavigationRail(
+                    selectedIndex: selectedIndex,
+                    onDestinationSelected: onItemSelected,
+                    labelType: NavigationRailLabelType.none,
+                    groupAlignment: -1.0,
+                    indicatorColor: Colors.transparent,
+                    destinations: items.map((item) {
+                      final isSelected = selectedIndex == items.indexOf(item);
+                      return NavigationRailDestination(
+                        icon:
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 32),
+                          child:
+                        Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                isSelected ? item.selectedIcon : item.icon,
+                                width: isSelected ? 22 : 20,
+                                height: isSelected ? 21 : 19,
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 4),
+                              Text(
+                                item.label,
+                                style: TextStyle(
+                                  color:
+                                      isSelected ? Colors.deepOrange : Colors.black,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                        label: SizedBox.shrink(),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      label: SizedBox.shrink(),
-                    );
-                  }).toList(),
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      padding: EdgeInsets.symmetric(vertical: 10),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                  ),
-                  child: Container(
-                    width: 80,
-                    height: 80,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.transparent,
+                    child: Container(
+                      width: 80,
+                      height: 80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 35,
+                            height: 35,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.transparent,
+                            ),
+                            child: Icon(
+                              Icons.flag_outlined,
+                              size: 24,
+                              color: Colors.white,
+                            ),
                           ),
-                          child: Icon(
-                            Icons.flag_outlined,
-                            size: 24,
-                            color: Colors.white,
+                          SizedBox(height: 8),
+                          Text(
+                            'Denunciar',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Denunciar',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        // ),
       ],
     );
   }
