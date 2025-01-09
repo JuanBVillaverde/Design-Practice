@@ -18,22 +18,23 @@ class CustomCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screen = MediaQuery.of(context).size.width;
     if (screen >= 1200) {
-        return Container(
-          width: 240,
-          height: 348,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 4.0,
-                offset: Offset(0, 2),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [ClipRRect(
+      return Container(
+        width: 240,
+        height: 348,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 4.0,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
                 imageUrl,
@@ -42,60 +43,57 @@ class CustomCardWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-
-                    const SizedBox(height: 8.0),
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8.0),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const SizedBox(height: 4.0),
-                    Text(
-                      category,
-                      style: const TextStyle(
-                        fontSize: 14.0,
-                        color: Colors.grey,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4.0),
+                  Text(
+                    category,
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.grey,
                     ),
-                    const SizedBox(height: 8.0),
-                    Row(
-                      children: [
-                        Text(
-                          price,
-                          style: const TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 8.0),
+                  Row(
+                    children: [
+                      Text(
+                        price,
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(width: 4.0),
-                        const Text(
-                          'Precio sugerido',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.grey,
-                          ),
+                      ),
+                      const SizedBox(width: 4.0),
+                      const Text(
+                        'Precio sugerido',
+                        style: TextStyle(
+                          fontSize: 10.0,
+                          color: Colors.grey,
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
-
+            ),
+          ],
+        ),
       );
-
     } else {
       return SizedBox(
         width: 328.0,
@@ -161,8 +159,8 @@ class CustomCardWidget extends StatelessWidget {
                         const SizedBox(
                           width: 8.0,
                         ),
-                        Flexible(
-                          child: const Text(
+                        const Flexible(
+                          child: Text(
                             'Precio sugerido',
                             style: TextStyle(
                               fontSize: 10.0,
@@ -175,10 +173,6 @@ class CustomCardWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              // const SizedBox(
-              //   width: 10,
-              // ),
-
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
@@ -188,10 +182,6 @@ class CustomCardWidget extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-
-              // Expanded(child:
-
-              // ),
             ],
           ),
         ),

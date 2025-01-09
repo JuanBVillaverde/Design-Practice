@@ -4,10 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prueba/list/adapters/list_adapter.dart';
-import 'package:prueba/list/widgets/custom_card_widget.dart';
+
 import 'package:prueba/state/app_state.dart';
 
-import '../../custom_widgets/custom_appbar.dart';
 import '../../custom_widgets/custom_searchbar.dart';
 import '../models/item_card.dart';
 
@@ -40,25 +39,36 @@ class _ListaViewState extends State<ListaView> {
   Widget buildMenu() {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              offset: Offset(0, 0.5),
-              blurRadius: 1,
-              spreadRadius: 1,
-            )
-          ]),
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(
+              0,
+              0.5,
+            ),
+            blurRadius: 1,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
       child: IconButton(
         onPressed: () {},
-        icon: const Icon(
-          Icons.menu,
-          color: Colors.black,
+        icon: Container(
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/menu.png',
+              ),
+              fit: BoxFit.none,
+            ),
+          ),
+          width: 45,
+          height: 45,
         ),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-        ),
+        tooltip: 'Menu',
       ),
     );
   }
@@ -72,7 +82,10 @@ class _ListaViewState extends State<ListaView> {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            offset: Offset(0, 0.5),
+            offset: Offset(
+              0,
+              0.5,
+            ),
             blurRadius: 1,
             spreadRadius: 1,
           ),
@@ -85,7 +98,10 @@ class _ListaViewState extends State<ListaView> {
             children: [
               Text(
                 'Puntos',
-                style: TextStyle(fontSize: 14.0, color: Colors.grey),
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.grey,
+                ),
               ),
               SizedBox(height: 4.0),
               Text(
@@ -117,20 +133,24 @@ class _ListaViewState extends State<ListaView> {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            offset: Offset(0, 0.5),
+            offset: const Offset(
+              0,
+              0.5,
+            ),
             blurRadius: 1,
             spreadRadius: 1,
           ),
         ],
       ),
       child: IconButton(
-        onPressed: () {
-        },
+        onPressed: () {},
         icon: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-              image: AssetImage('assets/images/bell.png'),
+              image: AssetImage(
+                'assets/images/bell.png',
+              ),
               fit: BoxFit.scaleDown,
             ),
           ),
@@ -151,7 +171,7 @@ class _ListaViewState extends State<ListaView> {
   }
 
   Widget buildTitteText() {
-    return Text(
+    return const Text(
       'Productos destacados',
       style: TextStyle(
         fontWeight: FontWeight.bold,

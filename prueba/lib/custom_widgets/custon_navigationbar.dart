@@ -16,7 +16,6 @@ class CustonNavigationbar extends StatefulWidget {
 }
 
 class _CustonNavigationbarState extends State<CustonNavigationbar> {
-  // int _selectedIndex = 0;
   int currentIndex = 0;
   final List<Widget> screens = [
     HomeView(),
@@ -27,19 +26,25 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
 
   final List<NavigationItem> navigationItems = [
     NavigationItem(
-        'assets/images/home.png',
-        'assets/images/homeSelected.png',
-        'Inicio'
-        ),
-    NavigationItem('assets/images/map.png', 'assets/images/mapSelected.png',
-        'Mapa' ),
+      'assets/images/home.png',
+      'assets/images/homeSelected.png',
+      'Inicio',
+    ),
     NavigationItem(
-        'assets/images/prices.png',
-        'assets/images/pricesSelected.png',
-        'Precios'
-     ),
-    NavigationItem('assets/images/QRIcon.png', 'assets/images/QRSelected.png',
-        'Lector QR'),
+      'assets/images/map.png',
+      'assets/images/mapSelected.png',
+      'Mapa',
+    ),
+    NavigationItem(
+      'assets/images/prices.png',
+      'assets/images/pricesSelected.png',
+      'Precios',
+    ),
+    NavigationItem(
+      'assets/images/QRIcon.png',
+      'assets/images/QRSelected.png',
+      'Lector QR',
+    ),
   ];
 
   late NavigationbarAdapter adapter;
@@ -54,52 +59,35 @@ class _CustonNavigationbarState extends State<CustonNavigationbar> {
   @override
   void initState() {
     super.initState();
-    // adapter =
-    //     NavigationbarAdapter(onItemChanged, navigationItems, currentIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    final navigationBar = NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).build(context);
+    final navigationBar = NavigationbarAdapter(
+      onItemChanged,
+      navigationItems,
+      currentIndex,
+    ).build(context);
 
     return Scaffold(
       body: Row(children: [
-        if (NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).isWideScreen(context)) navigationBar,
-        Expanded(child: screens[currentIndex]),
+        if (NavigationbarAdapter(
+          onItemChanged,
+          navigationItems,
+          currentIndex,
+        ).isWideScreen(context))
+          navigationBar,
+        Expanded(
+          child: screens[currentIndex],
+        ),
       ]),
-      bottomNavigationBar: NavigationbarAdapter(onItemChanged, navigationItems, currentIndex).isWideScreen(context) ? null : navigationBar,
+      bottomNavigationBar: NavigationbarAdapter(
+        onItemChanged,
+        navigationItems,
+        currentIndex,
+      ).isWideScreen(context)
+          ? null
+          : navigationBar,
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: IndexedStack(
-  //       index: selectedIndex,
-  //       children: screens,
-  //     ),
-  //     bottomNavigationBar: BottomNavigationBar(
-  //       currentIndex: selectedIndex,
-  //       onTap: (index) {
-  //         setState(() {
-  //           selectedIndex = index;
-  //         });
-  //       },
-  //       type: BottomNavigationBarType.fixed,
-  //       // selectedItemColor: Colors.orange,
-  //       // unselectedItemColor: Colors.black,
-  //       backgroundColor: Colors.white,
-  //       items: List.generate(4, (index) {
-  //         return BottomNavigationBarItem(
-  //           icon: Image.asset(
-  //             selectedIndex == index ? selectedIcons[index] : icons[index],
-  //             width: 50,
-  //             height: 50,
-  //           ),
-  //           label: '',
-  //         );
-  //       }),
-  //     ),
-  //   );
-  // }
 }

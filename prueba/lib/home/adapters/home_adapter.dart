@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:prueba/custom_widgets/adapters/base_adapter.dart';
-import 'package:prueba/custom_widgets/custom_appbar.dart';
 
 import '../styles/home_styles.dart';
 
 class HomeAdapter extends BaseAdapter {
-  HomeAdapter(
-
-      // this.appBar,
-      {
+  HomeAdapter({
     required this.menu,
     required this.points,
     required this.notifications,
@@ -17,7 +13,6 @@ class HomeAdapter extends BaseAdapter {
     required this.cardWelcome,
     required this.cardEvents,
     required this.cadrEVA,
-    // this.navbar,
     required this.alertButton,
     required this.styles,
   });
@@ -28,18 +23,14 @@ class HomeAdapter extends BaseAdapter {
 
   final ValueSetter<HomeStyles> styles;
 
-  // final Widget appBar;
-
   final Widget titleText;
   final Widget cardWelcome;
   final Widget cardEvents;
   final Widget cadrEVA;
 
-  // final Widget navbar;
   final Widget alertButton;
 
   Widget mobileScreen(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white54,
@@ -53,8 +44,10 @@ class HomeAdapter extends BaseAdapter {
             children: [
               const Spacer(),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12.0,
+                  vertical: 6.0,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
@@ -62,11 +55,11 @@ class HomeAdapter extends BaseAdapter {
                 child: Row(
                   children: [
                     points,
-                    SizedBox(
+                    const SizedBox(
                       width: 12.0,
                     ),
                     notifications,
-                    SizedBox(
+                    const SizedBox(
                       width: 20.0,
                     ),
                   ],
@@ -82,8 +75,12 @@ class HomeAdapter extends BaseAdapter {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                        bottom: 26.0, left: 16.0, right: 33.0, top: 25.0),
+                    padding: const EdgeInsets.only(
+                      bottom: 26.0,
+                      left: 16.0,
+                      right: 33.0,
+                      top: 25.0,
+                    ),
                     child: Flexible(
                       child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,12 +90,12 @@ class HomeAdapter extends BaseAdapter {
                     ),
                   ),
                   cardWelcome,
-                  SizedBox(
-                    height: 4.0,
+                  const SizedBox(
+                    height: 9.0,
                   ),
                   cardEvents,
-                  SizedBox(
-                    height: 4.0,
+                  const SizedBox(
+                    height: 9.0,
                   ),
                   cadrEVA,
                 ]),
@@ -114,7 +111,7 @@ class HomeAdapter extends BaseAdapter {
     styles(
       HomeStyles(
         reportButtonPadding: 20.0,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 10.0,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.0,
@@ -130,7 +127,7 @@ class HomeAdapter extends BaseAdapter {
     styles(
       HomeStyles(
         reportButtonPadding: 20.0,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 10.0,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.0,
@@ -146,7 +143,7 @@ class HomeAdapter extends BaseAdapter {
     styles(
       HomeStyles(
         reportButtonPadding: 20.0,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.0,
@@ -159,6 +156,9 @@ class HomeAdapter extends BaseAdapter {
         backgroundColor: Colors.white54,
         body: Column(
           children: [
+            const SizedBox(
+              height: 10.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -166,10 +166,8 @@ class HomeAdapter extends BaseAdapter {
                   padding: const EdgeInsets.only(left: 40.0),
                   child: titleText,
                 ),
-                const Spacer(),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 6.0),
+                  padding: const EdgeInsets.only(left: 306.0),
                   decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(20),
@@ -177,11 +175,11 @@ class HomeAdapter extends BaseAdapter {
                   child: Row(
                     children: [
                       points,
-                      SizedBox(
+                      const SizedBox(
                         width: 30.0,
                       ),
                       notifications,
-                      SizedBox(
+                      const SizedBox(
                         width: 30.0,
                       ),
                       menu,
@@ -192,7 +190,7 @@ class HomeAdapter extends BaseAdapter {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 40, right: 32),
+              padding: const EdgeInsets.only(left: 40, right: 32, top: 47),
               child: Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -204,7 +202,7 @@ class HomeAdapter extends BaseAdapter {
                         mainAxisSpacing: 16.0,
                         childAspectRatio: 2 / 1,
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         children: [
                           cardWelcome,
                           cardEvents,
@@ -228,7 +226,7 @@ class HomeAdapter extends BaseAdapter {
     styles(
       HomeStyles(
           reportButtonPadding: 20.0,
-          titleStyle: TextStyle(
+          titleStyle: const TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
             letterSpacing: 0.0,
@@ -240,6 +238,9 @@ class HomeAdapter extends BaseAdapter {
         backgroundColor: Colors.white54,
         body: Column(
           children: [
+            const SizedBox(
+              height: 10.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -247,10 +248,8 @@ class HomeAdapter extends BaseAdapter {
                   padding: const EdgeInsets.only(left: 37.0),
                   child: titleText,
                 ),
-                const Spacer(),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 6.0),
+                  padding: const EdgeInsets.only(left: 65.0),
                   decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(20),
@@ -258,11 +257,11 @@ class HomeAdapter extends BaseAdapter {
                   child: Row(
                     children: [
                       points,
-                      SizedBox(
+                      const SizedBox(
                         width: 30.0,
                       ),
                       notifications,
-                      SizedBox(
+                      const SizedBox(
                         width: 30.0,
                       ),
                       menu,
@@ -276,6 +275,7 @@ class HomeAdapter extends BaseAdapter {
               padding: const EdgeInsets.only(
                 left: 37.0,
                 right: 32.0,
+                top: 50.0,
               ),
               child: Expanded(
                 child: SingleChildScrollView(
@@ -289,12 +289,12 @@ class HomeAdapter extends BaseAdapter {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 cardWelcome,
-                                SizedBox(
-                                  height: 4.0,
+                                const SizedBox(
+                                  height: 29.0,
                                 ),
                                 cardEvents,
-                                SizedBox(
-                                  height: 4.0,
+                                const SizedBox(
+                                  height: 29.0,
                                 ),
                                 cadrEVA,
                               ]),
