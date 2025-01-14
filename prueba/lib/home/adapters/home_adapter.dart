@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:prueba/custom_widgets/adapters/base_adapter.dart';
-
 import '../styles/home_styles.dart';
 
 class HomeAdapter extends BaseAdapter {

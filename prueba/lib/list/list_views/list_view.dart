@@ -1,12 +1,8 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prueba/list/adapters/list_adapter.dart';
-
 import 'package:prueba/state/app_state.dart';
-
 import '../../custom_widgets/custom_searchbar.dart';
 import '../models/item_card.dart';
 

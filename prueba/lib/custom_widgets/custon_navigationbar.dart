@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba/custom_widgets/adapters/navigationbar_adapter.dart';
 import 'package:prueba/custom_widgets/models/navigation_item.dart';
 import 'package:prueba/home/views/home_view.dart';
 import 'package:prueba/map/map_views/map_view.dart';
 import 'package:prueba/qr_reader/qr_reader_views/qr_reader_view.dart';
-
 import '../list/list_views/list_view.dart';
 
 class CustonNavigationbar extends StatefulWidget {
