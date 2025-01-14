@@ -1,11 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prueba/custom_widgets/custon_navigationbar.dart';
-
 import 'package:prueba/state/app_state.dart';
-
 import 'list/models/item_card.dart';
 
 Future<List<ItemCard>> loadItems() async {
@@ -41,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: CustonNavigationbar(),
+      home: const CustonNavigationbar(),
     );
   }
 }
