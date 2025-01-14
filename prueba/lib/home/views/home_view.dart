@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba/custom_widgets/custom_appbar.dart';
+
 import 'package:prueba/home/adapters/home_adapter.dart';
 import 'package:prueba/home/styles/home_styles.dart';
 import 'package:prueba/home/widgets/custom_stack_widget.dart';

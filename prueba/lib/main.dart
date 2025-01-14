@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prueba/custom_widgets/custon_navigationbar.dart';
-import 'package:prueba/home/views/home_view.dart';
+
 import 'package:prueba/state/app_state.dart';
 
 import 'list/models/item_card.dart';
