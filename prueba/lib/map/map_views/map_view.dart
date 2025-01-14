@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../custom_widgets/custom_appbar.dart';
 
 class MapView extends StatefulWidget {

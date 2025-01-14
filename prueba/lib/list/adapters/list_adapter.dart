@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba/custom_widgets/adapters/base_adapter.dart';
 import 'package:prueba/list/models/item_card.dart';
-
 import '../widgets/custom_card_widget.dart';
 
 class ListAdapter extends BaseAdapter {
